@@ -1,7 +1,7 @@
 <template>
   <div>
     <SingolaCard 
-  :key="`disco-${index}`" v-for="(Disco, index) in elencoDischi"
+  :key="`Disco-${index}`" v-for="(Disco, index) in elencoDischi" :CardSing="Disco"
     />
   </div>
 </template>
@@ -29,6 +29,7 @@ export default {
       axios.get(this.apiUrl)
       .then(r =>{
         console.log(r.data)
+        this.elencoDischi = r.data.response;
       })
       .catch(e =>{
         console.log(e)
