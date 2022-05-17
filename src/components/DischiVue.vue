@@ -1,14 +1,20 @@
 <template>
   <div>
-    DISCHI
+    <SingolaCard 
+  :key="`disco-${index}`" v-for="(Disco, index) in elencoDischi"
+    />
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
+import SingolaCard from './SingolaCard.vue';
 
 export default {
   name: 'DischiVue',
+  components: {
+    SingolaCard
+  },
   data(){
     return{
       apiUrl: 'https://flynn.boolean.careers/exercises/api/array/music',

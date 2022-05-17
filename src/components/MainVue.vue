@@ -1,7 +1,9 @@
 <template>
 
   <div id="main">
-    <DischiVue />
+    <div class="container">
+      <DischiVue />
+    </div>
   </div>
 
 </template>
@@ -19,7 +21,8 @@ export default {
 
 <style lang="scss" scoped>
 #main{
-  height: 80vh;
+  min-height: 80vh;
   background-color: #1E2D3B;
 }
+
 </style>
