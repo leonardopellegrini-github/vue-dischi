@@ -1,12 +1,19 @@
 <template>
-  <div id="main">
 
+  <div id="main">
+    <DischiVue />
   </div>
+
 </template>
 
 <script>
+import DischiVue from './DischiVue.vue'
+
 export default {
    name: "MainVue",
+   components: {
+     DischiVue
+   }
 }
 </script>
 
