@@ -2,7 +2,7 @@
 
   <div id="main">
     <div class="container">
-        <DischiVue />
+        <DischiVue :genereDaCercare="genereDaCercare"/>
     </div>
   </div>
 
@@ -13,12 +13,15 @@ import DischiVue from './DischiVue.vue'
 
 export default {
    name: "MainVue",
+
+   components: {
+     DischiVue
+   },
+
    props:{
      genereDaCercare: String
    },
-   components: {
-     DischiVue
-   }
+  
 }
 </script>
 

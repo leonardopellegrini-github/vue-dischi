@@ -28,9 +28,6 @@ export default {
       console.log(genereDaCercare);
     }
   }
-    
-  
-
 }
 </script>
 

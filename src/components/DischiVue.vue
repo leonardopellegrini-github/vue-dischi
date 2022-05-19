@@ -1,7 +1,7 @@
 <template>
   <div id="divline">
     <SingolaCard 
-  :key="`Disco-${index}`" v-for="(Disco, index) in elencoDischi" :CardSing="Disco"
+  :key="`Disco-${index}`" v-for="(Disco, index) in dischiFiltrati" :CardSing="Disco" 
     />
   </div>
 </template>
@@ -15,16 +15,20 @@ export default {
   components: {
     SingolaCard
   },
+  props:{
+     genereDaCercare: String
+   },
   data(){
     return{
       apiUrl: 'https://flynn.boolean.careers/exercises/api/array/music',
       elencoDischi: [],
-      genereSelezionato: "",
+      
     }
   },
   mounted(){
     this.getApi();
   },
+
   methods:{
     getApi(){
       axios.get(this.apiUrl)
@@ -37,19 +41,18 @@ export default {
       })
     },
 
-    qualeGenere(valoreFiltro){
-      this.valoreFiltro = valoreFiltro;
-    }
   },
 
-  /** 
   computed:{
-    if (this.genereSelezionato === ''){
-      return this.CardSing;
-    },
-    {return this.CardSing.filter(CardSing => CardSing.genre)}
-  },
-  */
+    dischiFiltrati(){
+      if(this.genereDaCercare === ""){
+        return this.elencoDischi
+      } else{
+        return this.elencoDischi.filter(CardSing => CardSing.genre === this.genereDaCercare)
+      }
+    }
+  }
+
 }
 </script>
 
