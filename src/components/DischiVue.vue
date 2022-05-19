@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="divline">
     <SingolaCard 
   :key="`Disco-${index}`" v-for="(Disco, index) in elencoDischi" :CardSing="Disco"
     />
@@ -18,7 +18,8 @@ export default {
   data(){
     return{
       apiUrl: 'https://flynn.boolean.careers/exercises/api/array/music',
-      elencoDischi: []
+      elencoDischi: [],
+      genereSelezionato: "",
     }
   },
   mounted(){
@@ -34,11 +35,31 @@ export default {
       .catch(e =>{
         console.log(e)
       })
+    },
+
+    qualeGenere(valoreFiltro){
+      this.valoreFiltro = valoreFiltro;
     }
-  }
+  },
+
+  /** 
+  computed:{
+    if (this.genereSelezionato === ''){
+      return this.CardSing;
+    },
+    {return this.CardSing.filter(CardSing => CardSing.genre)}
+  },
+  */
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+#divline{
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
 </style>

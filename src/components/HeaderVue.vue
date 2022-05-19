@@ -4,7 +4,13 @@
 
         <img src="@/img/pngegg.png" alt="Logo">
       
-        <h3>Lista</h3>
+        <select v-model="cercaGenere" @change="$emit('cerca', cercaGenere)">
+          <option value="">Seleziona un genere</option>
+          <option value="Pop">Pop</option>
+          <option value="Rock">Rock</option>
+          <option value="Jazz">Jazz</option>
+          <option value="Metal">Metal</option>
+        </select>
 
     </div>
         
@@ -13,8 +19,14 @@
 </template>
 
 <script>
+
 export default {
    name: "HeaderVue",
+   data(){
+    return{
+      cercaGenere: '',
+    }
+  }
 }
 </script>
 
@@ -23,13 +35,11 @@ export default {
 #header{
   height: 20vh;
   background-color: #2E3A46;
+  padding: 20px;
   img{
-    width: 30px;
-    
+    width: 50px;
   }
-  h3{
-    
-  }
+  
 }
 
 

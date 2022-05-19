@@ -1,8 +1,8 @@
 <template>
 
   <div>
-    <HeaderVue />
-    <MainVue />
+    <HeaderVue @cerca="cerca"/>
+    <MainVue :genereDaCercare="genereDaCercare"/>
   </div>
 
 </template>
@@ -16,7 +16,21 @@ export default {
   components: {
     HeaderVue,
     MainVue
-}
+  },
+  data(){
+    return{
+      genereDaCercare: '',
+    }
+  },
+  methods:{
+    cerca(genereDaCercare){
+      this.genereDaCercare = genereDaCercare;
+      console.log(genereDaCercare);
+    }
+  }
+    
+  
+
 }
 </script>
 

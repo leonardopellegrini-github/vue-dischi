@@ -2,7 +2,7 @@
 
   <div id="main">
     <div class="container">
-      <DischiVue />
+        <DischiVue />
     </div>
   </div>
 
@@ -13,6 +13,9 @@ import DischiVue from './DischiVue.vue'
 
 export default {
    name: "MainVue",
+   props:{
+     genereDaCercare: String
+   },
    components: {
      DischiVue
    }
